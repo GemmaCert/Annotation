@@ -1,0 +1,79 @@
+Команды со смартфона передаваемые по блютуз:
+0. Определить доступные устройства (Scan)
+1. Сопряжение с GCA (Pair)
+2. Запрос на обновление программного обеспечения смарфона, подтверждение, связь с серверной частью
+3. Установка (Mode Selection) (Flower, Ground, Extract)
+4. Калибровка (Calibrate)
+5. Анализ (Analyze)
+6. Результат (Results)
+7. Начать новый анализ (Another)
+8. Просмотр результатов прошлых анализов (Retrive), связь с серверной частью
+9. Обратиться в службу поддержки (Feedback), связь с серверной частью
+
+Команды короткие по Test:
+'id' - инициализация ID устройства 
+'fr' - анализ красного сектора (поиск красных точек)
+'bt' - вывести на экран состояние строки атрибута встроенного теста
+'sp' - slow_print
+'xt' - extract all
+'gs' - получить актуальные параметры спектрометра
+'da' - результат темного
+'md' - измерить расстояния
+'ca' - калибровка 
+'s0' - 
+'l0' - 
+'lp' -
+'ds' - 
+'pl' - 
+'wp' - получить фото белого 
+'cp' - получить фото центра бутона
+'dw' - отключить wi-fi
+
+Команды короткие по bluetooth:
+COMMAND_ID = "id"; инициализация ID устройства
+COMMAND_BT = "bt"; bluetooh connect
+COMMAND_ANALYZE = "ex"; анализ
+COMMAND_CALIBRATE = "ca"; калибровка
+COMMAND_CALIBRATE_FOR_STABILITY = "CA"; КАЛИБРОВКА ДЛЯ ОБЕСПЕЧЕНИЯ СТАБИЛЬНОСТИ
+COMMAND_GET_CONFIG = "gc"; ПОЛУЧИТЬ КОНФИГУРАЦИЮ
+COMMAND_HOME = "hm"; установить в домашнее состояние
+COMMAND_STABILITY1 = "s1";
+COMMAND_STABILITY2 = "s2";
+COMMAND_DIRECT_MESSAGE = "dm"; ПРЯМОЕ СООБЩЕНИЕ
+COMMAND_SOFTWARE_UPDATE = "dm"; ОБНОВЛЕНИЕ ПРОГРАММНОГО ОБЕСПЕЧЕНИЯ
+COMMAND_LAMP_OFF = "lo"; выключить лампу
+COMMAND_LAMP_ON = "ln"; включить лампу
+COMMAND_TEMPERATURE = "tt"; 
+COMMAND_HK = "hk";
+COMMAND_HOME_Y = "hy";
+COMMAND_ONE_SPECTRA = "1s";
+COMMAND_ONE_SPECTRA_WITH_DARK = "1S"; сделать фото изображения, записать в файл, преобразовать в двоичный формат, получить актуальные параметры спектрометра, получить строку информации, вывести ее, переместить устройство в состояние moveToPlasticInSteps
+COMMAND_ADVANCE_Y = "y1";
+COMMAND_MAX_Z = "zz"; установить максимальный параметр Z
+COMMAND_Z_CENTER = "zc"; установить параметр Z по центру
+COMMAND_BLUE_LED_START = "bs"; ЗАПУСК СИНЕГО СВЕТОДИОДА
+COMMAND_BLUE_LED_OFF = "bo"; СИНИЙ СВЕТОДИОД ВЫКЛЮЧИТЬ
+COMMAND_BLUE_LED_BLINK_ONE_SEC = "b1"; СИНИЙ СВЕТОДИОД МИГАЕТ ОДНУ СЕКУНДУ
+COMMAND_BLUE_LED_BLINK_THREE_SEC = "b3"; СИНИЙ СВЕТОДИОД МИГАЕТ ТРИ СЕКУНДЫ
+COMMAND_WHITE_LED_START = "ws"; ЗАПУСК БЕЛОГО СВЕТОДИОДА
+COMMAND_WHITE_LED_OFF = "wo"; БЕЛЫЙ СВЕТОДИОД ВЫКЛЮЧИТЬ
+COMMAND_WHITE_LED_BLINK_ONE_SEC = "w1"; БЕЛЫЙ СВЕТОДИОД МИГАЕТ ОДНУ СЕКУНДУ
+COMMAND_WHITE_LED_BLINK_THREE_SEC = "w3"; БЕЛЫЙ СВЕТОДИОД МИГАЕТ ТРИ СЕКУНДы
+COMMAND_GET_LOGS = "gl";
+COMMAND_IS_CLOSED = "ic"; ЗАКРЫТЬ
+COMMAND_ADVANCE_Z = "z1"; ПРОДВИЖЕНИЕ Y
+COMMAND_LOWER_Z = "1z";
+COMMAND_MOVE_WCS = "mw"; переместить в центр WSC
+COMMAND_TURN_OFF = "sd";
+COMMAND_IDLE = "dl";
+COMMAND_DOWNLOAD_CONFIG = "dc"; ЗАГРУЗИТЬ КОНФИГУРАЦИЮ
+COMMAND_FREE_SPACE = "fs";
+COMMAND_FIND_CENTER = "fc"; НАЙТИ ЦЕНТР
+COMMAND_DOWNLOAD_POINTS = "dp"; загрузить конфигурацию с сервера
+
+ public static String Production_domain_url = 
+"https://prod.gemmacert.com/CannabiTechWebApplication/API/prev_calibration_timestamp_"; //Production
+    public static String Test_domain_url = 
+"https://test.gemmacert.com/CannabiTechWebApplication/API/"; //Test
+
+

@@ -1,0 +1,58 @@
+Files on Raspberry
+
+/etc/rc.local - Autoloading file, stores information about the file download pgc200.py from the gc200A or gc200B directories, depending on the need for an update and the current version. It also contains information about the start of the GcWatchdog/GcWatchdog process - the sticking alarm. (Файл автозагрузки, хранит информацию о загрузке файла pgc200.py из каталогов gc200A или gc200B в зависимости от необходимости обновления и текущей версии. Так же содержит информацию о запуске процесса GcWatchdog/GcWatchdog - сигнализатор залипания.)
+
+/etc/machine-info - The file from which you can get information about the Device ID. (Файл из которого можно получить информацию о Device ID)
+
+cnctrclocal.txt - Temporary directory storage file with the new version of the program. The file is formed from the startup file /etc/rc.local, after receiving a Bluetooth command from the smartphone application.  (Временный файл хранения каталога с новой версией программы. Файл формируется из файла автозагрузки /etc/rc.local, после получения команды по Bluetooth от приложения смартфона)
+
+downloaded.txt - Temporary file for updating the software product from the database server, via smartphone applications. (Временный файл, для обновления программного продукта из сервера базы данных, через приложения смартфона)
+
+gclooprclocal.txt - Temporary directory storage file with the new version of the program. The file is formed from the startup file /etc/rc.local, after updating the configuration file. (Временный файл хранения каталога с новой версией программы. Файл формируется из файла автозагрузки /etc/rc.local, после обновления конфигурационного файла)
+
+looprclocal.txt - Temporary directory storage file with the new version of the program. The file is formed from the startup file /etc/rc.local, after loading the configuration. (Временный файл хранения каталога с новой версией программы. Файл формируется из файла автозагрузки /etc/rc.local, после загрузки конфигурации)
+
+pdebuglog.txt - A file for logging the operation of the program pdebug.py. (Файл для логирования работы программы pdebug.py)
+
+pdebug.py - The program for debugging the program with the device, allows you to set commands manually, without using a smartphone application. (Программа для отладки работы программы с устройством, позволяет задавать команды вручную, без использования приложения смартфона)
+
+rclocal.txt - Temporary file for storing the directory with the program version. The file is formed from the startup file /etc/rc.local. (Временный файл хранения каталога с версией программы. Файл формируется из файла автозагрузки /etc/rc.local)
+
+sdversion - Storage file of the current SV version. (Файл хранения текущей СВ версии)
+
+starting.txt - A temporary file for storing the Gc200 start time is formed based on the analysis of the logging file /home/pi/LogsGc200/logGc200.txt . Which in turn allows you to calculate the time of the last indication. (Временный файл для хранения времени старта Gc200, формируется на основе анализа файла логирования /home/pi/LogsGc200/logGc200.txt. Что в свою очередь позволяет вычислить время последней индикации.)
+
+tstrclocal.txt - Temporary directory storage file with the new version of the program. The file is formed from the startup file /etc/rc.local. (Временный файл хранения каталога с новой версией программы. Файл формируется из файла автозагрузки /etc/rc.local)
+
+verrclocal.txt - Temporary directory storage file with the current version of the program. The file is formed from the startup file /etc/rc.local
+(Временный файл хранения каталога с текущей версией программы. Файл формируется из файла автозагрузки /etc/rc.local)
+
+lineBeforeReboot.txt - A temporary file exists to generate information about the time of the last indication. It is formed on the basis of data stored in the logging history from /home/pi/LogsGc200/logGc200.txt. (Временный файл, существует для формирования информации о времени последней индикации. Формируется на основе данных хранящихся в историии логирования из /home/pi/LogsGc200/logGc200.txt)
+
+gc200A/
+    pgc200.py - The python program, depending on the current settings, may be current and in the process of execution. (Программа python, в зависимости от текущих настроек может быть текущей и в процессе исполнения)
+
+gc200B/
+    pgc200.py - The python program, depending on the current settings, may be current and in the process of execution. (Программа python, в зависимости от текущих настроек может быть текущей и в процессе исполнения)
+
+GcWatchdog/
+    GcWatchdog - Executable file, analysis of program sticking. It works in parallel with the main program. (Исполняемый файл, анализ залипания программы. Работает параллельно с основной программой.)
+    GcWatchdogFifo - A temporary file that uses python code for generating reports, and analysis by GcWatchdog (Временный файл, использует для формирования отчетов со стороны python код, и анализа, со стороны GcWatchdog)
+    horror_stories - GcWatchdog Work and Error Report (Отчет о работе и ошибках GcWatchdog)
+
+jsons/
+    gc200conf.json - The configuration file is loaded when the program starts. The file is updated, using the update command, from the database. (Файл конфигурация, загружается при начале работы программы. Файл обновляется, с помощью команды update, из базы данных.)
+    gc200srvconf.json - Configuration file, server. It is not required for the application to work. (Файл конфигурация, сервера. Для работы приложения не требуется.)
+    oldgc200conf.json - Previous version of the configuration file. (Предыдущая версия файла конфигурации)
+
+pct/
+    Catalog of images of spectrometer images (Каталог изображений снимков спектрометра)
+
+LogsGc200/
+    logGc200.txt - The main logging file of the program. A convenient file for debugging the program. Perhaps it makes sense to disable logging in production, to increase productivity. (Основной файл логирования работы программы. Удобный файл для отладки работы программы. Возможно есть смысл отключения логирования в продакшн, для увеличения производительности.)
+    lampElapsedTime.txt
+    exceptions.txt - The file for entering exceptions of the program. Stores information about the time and date of the last exceptions. (Файл занесения исключений работы программы. Хранит информацию о времени и дате последних исключений.)
+    exceptionsFull.txt - The file for entering exceptions of the program. Stores information about the time and date of all exceptions. (Файл занесения исключений работы программы. Хранит информацию о времени и дате всех исключений)
+    exceptionlog.zip - Archived version exceptionsFull.txt at the moment, it is created when a special command is given at the debugging stage.(Архивная версия exceptionsFull.txt на текущий момент, создается при подаче специальной команды на этапе отладки.)
+    savedlogGc200.txt - Current copy logGc200.txt at a given moment, it is created when a special command is given, at the debugging stage. (Текущая копия logGc200.txt на заданный момент, создается при подаче специальной команды, на этапе отладки.)
+
