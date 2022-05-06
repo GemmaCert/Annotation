@@ -102,5 +102,23 @@ class bluetooth():
         StrBt = input('Enter the command: ')
         return StrBt[str_size]
 
+class BluetoothSocket():
+    mode = ''
+    port = ''
+    hostAdress = ''
+    def __init__(self,RFCOMM):
+        self.mode = RFCOMM
+    def bind(self,arglist):
+        self.hostAdress = arglist[0]
+        self.port = arglist[1]
+    def listen(self,backlog):
+        pass
+    def settimeout(self,num):
+        pass
+    def accept(self):
+        pass
+    def close(self):
+        pass
+
 if __name__ == '__main__':
     pass

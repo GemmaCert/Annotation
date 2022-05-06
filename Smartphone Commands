@@ -1,7 +1,7 @@
 Команды со смартфона передаваемые по блютуз:
 0. Определить доступные устройства (Scan)
 1. Сопряжение с GCA (Pair)
-2. Запрос на обновление программного обеспечения смарфона, подтверждение, связь с серверной частью
+2. Запрос на обновление программного обеспечения смарфона, подтверждение, связь с серверной частью (Update)
 3. Установка (Mode Selection) (Flower, Ground, Extract)
 4. Калибровка (Calibrate)
 5. Анализ (Analyze)
@@ -10,42 +10,23 @@
 8. Просмотр результатов прошлых анализов (Retrive), связь с серверной частью
 9. Обратиться в службу поддержки (Feedback), связь с серверной частью
 
-Команды короткие по Test:
-'id' - инициализация ID устройства 
-'fr' - анализ красного сектора (поиск красных точек)
-'bt' - вывести на экран состояние строки атрибута встроенного теста
-'sp' - slow_print
-'xt' - extract all
-'gs' - получить актуальные параметры спектрометра
-'da' - результат темного
-'md' - измерить расстояния
-'ca' - калибровка 
-'s0' - 
-'l0' - 
-'lp' -
-'ds' - 
-'pl' - 
-'wp' - получить фото белого 
-'cp' - получить фото центра бутона
-'dw' - отключить wi-fi
-
-Команды короткие по bluetooth:
-COMMAND_ID = "id"; инициализация ID устройства
-COMMAND_BT = "bt"; bluetooh connect
-COMMAND_ANALYZE = "ex"; анализ
-COMMAND_CALIBRATE = "ca"; калибровка
+Команды короткие по bluetooth из Java application:
+COMMAND_ID = "id"; Инициализация ID устройства, сопряжения ID устройства и приложения смартфона
+COMMAND_BT = "bt"; Создания BIT атрибутов
+COMMAND_ANALYZE = "ex"; Процес анализа содержимого
+COMMAND_CALIBRATE = "ca"; Процесс калибровки устройства
 COMMAND_CALIBRATE_FOR_STABILITY = "CA"; КАЛИБРОВКА ДЛЯ ОБЕСПЕЧЕНИЯ СТАБИЛЬНОСТИ
-COMMAND_GET_CONFIG = "gc"; ПОЛУЧИТЬ КОНФИГУРАЦИЮ
-COMMAND_HOME = "hm"; установить в домашнее состояние
-COMMAND_STABILITY1 = "s1";
-COMMAND_STABILITY2 = "s2";
+COMMAND_GET_CONFIG = "gc"; Получить конфигурацию из файла Json
+COMMAND_HOME = "hm"; Установить положение в домашнее состояние
+COMMAND_STABILITY1 = "s1"; Получить спектрометрические актуальные параметры из стабильного состояния 1
+COMMAND_STABILITY2 = "s2"; Получить спектрометрические актуальные параметры из стабильного состояния 2
 COMMAND_DIRECT_MESSAGE = "dm"; ПРЯМОЕ СООБЩЕНИЕ
 COMMAND_SOFTWARE_UPDATE = "dm"; ОБНОВЛЕНИЕ ПРОГРАММНОГО ОБЕСПЕЧЕНИЯ
-COMMAND_LAMP_OFF = "lo"; выключить лампу
-COMMAND_LAMP_ON = "ln"; включить лампу
-COMMAND_TEMPERATURE = "tt"; 
-COMMAND_HK = "hk";
-COMMAND_HOME_Y = "hy";
+COMMAND_LAMP_OFF = "lo"; Выключить лампу спектрометра
+COMMAND_LAMP_ON = "ln"; Включить лампу спектрометра
+COMMAND_TEMPERATURE = "tt"; Получить значение температуры
+COMMAND_HK = "hk"; -
+COMMAND_HOME_Y = "hy"; Установить позоционирование по Y в домашнее состояние
 COMMAND_ONE_SPECTRA = "1s";
 COMMAND_ONE_SPECTRA_WITH_DARK = "1S"; сделать фото изображения, записать в файл, преобразовать в двоичный формат, получить актуальные параметры спектрометра, получить строку информации, вывести ее, переместить устройство в состояние moveToPlasticInSteps
 COMMAND_ADVANCE_Y = "y1";
@@ -59,17 +40,171 @@ COMMAND_WHITE_LED_START = "ws"; ЗАПУСК БЕЛОГО СВЕТОДИОДА
 COMMAND_WHITE_LED_OFF = "wo"; БЕЛЫЙ СВЕТОДИОД ВЫКЛЮЧИТЬ
 COMMAND_WHITE_LED_BLINK_ONE_SEC = "w1"; БЕЛЫЙ СВЕТОДИОД МИГАЕТ ОДНУ СЕКУНДУ
 COMMAND_WHITE_LED_BLINK_THREE_SEC = "w3"; БЕЛЫЙ СВЕТОДИОД МИГАЕТ ТРИ СЕКУНДы
-COMMAND_GET_LOGS = "gl";
-COMMAND_IS_CLOSED = "ic"; ЗАКРЫТЬ
-COMMAND_ADVANCE_Z = "z1"; ПРОДВИЖЕНИЕ Y
-COMMAND_LOWER_Z = "1z";
-COMMAND_MOVE_WCS = "mw"; переместить в центр WSC
-COMMAND_TURN_OFF = "sd";
-COMMAND_IDLE = "dl";
+COMMAND_GET_LOGS = "gl"; -
+COMMAND_IS_CLOSED = "ic"; Проверить закрыт ли контейнер
+COMMAND_ADVANCE_Z = "z1"; Переместить по оси Z вперед на заданное расстояние
+COMMAND_LOWER_Z = "1z"; Переместить по оси Z назад на заданное расстояние
+COMMAND_MOVE_WCS = "mw"; Переместить в центр WSC
+COMMAND_TURN_OFF = "sd"; Выключить устройство shutdown
+COMMAND_IDLE = "dl"; Перемещение каретки по Y в домашнее состояние, а Z в 3800
 COMMAND_DOWNLOAD_CONFIG = "dc"; ЗАГРУЗИТЬ КОНФИГУРАЦИЮ
-COMMAND_FREE_SPACE = "fs";
-COMMAND_FIND_CENTER = "fc"; НАЙТИ ЦЕНТР
+COMMAND_FREE_SPACE = "fs"; Spectra taken at home y
+COMMAND_FIND_CENTER = "fc"; Получить актуальные параметры спектрометра, найти центра экстракта
 COMMAND_DOWNLOAD_POINTS = "dp"; загрузить конфигурацию с сервера
+
+
+Команды короткие по Test:
+user_input = 'id' - инициализация ID устройства
+user_input = 'dt' - установить время
+user_input = 'fr' - анализ красного сектора (поиск красных точек)
+user_input = 'bt' - вывести на экран состояние строки атрибута встроенного теста
+user_input = 'sp' - slow_print
+user_input = 'xt' - extract all
+user_input = 'gs' - получить актуальные параметры спектрометра
+user_input = 'da' - результат темного
+user_input = 'md' - измерить расстояния
+user_input = 'ca' - Процесс калибровки устройства
+user_input = 'fs' - спектр взят в home y
+user_input = 'gr' - получить ссылку
+user_input = 'c1' -
+user_input = 'C1' -
+user_input = 's0' -
+user_input = 'l0' -
+user_input = 'lp' -
+user_input = 'ds' - получить СД версию
+user_input = 'pl' -
+user_input = 'wp' - получить фото белого
+user_input = 'cp' - получить фото центра бутона
+user_input = 'dw' - отключить wi-fi
+user_input = 'gw' - найди белые существующие
+user_input = 'SL' - укоротить файлы логов и исключений
+user_input = 'CS' -
+user_input = '1s'
+user_input = '1S'
+user_input = 'CA'
+user_input = 'dl'
+user_input = 'mp' - переместить материал
+user_input = 'mP' - переместить материал 2
+user_input = 'ct' - отрегулировать температуру
+user_input = 'tt' - получить значение температуры
+user_input = 'uc' - выгрузить конфигурационный файл
+user_input = 'gc' -
+user_input = 'xc'
+user_input = 'mw'
+user_input = 'ex' - провести анализ
+user_input = 's1' - получить спектрометрические актуальные параметры из стабильного состояния 1
+user_input = 's2' - получить спектрометрические актуальные параметры из стабильного состояния 2
+user_input = 'sl'
+user_input = 'ic'
+user_input = 'fw'
+user_input = 'FL'
+user_input = 're'
+user_input = 'de'
+user_input = 'td'
+user_input = 'hy'
+user_input = 'xe'
+user_input = 'hx'
+user_input = 'HX'
+user_input = 'XP'
+user_input = 'PX'
+user_input = 'XL'
+user_input = 'hz'
+user_input = 'my'
+user_input = 'y6'
+user_input = 'y8'
+user_input = 'y1'
+user_input = '1y'
+user_input = 'yl'
+user_input = 'lj'
+user_input = 'lh'
+user_input = 'lk'
+user_input = 'lt'
+user_input = 'lq'
+user_input = 'lw'
+user_input = 'nl'
+user_input = 'xl'
+user_input = 'zl'
+user_input = 'll'
+user_input = 'y9'
+user_input = 'y4'
+user_input = 'ym'
+user_input = 'mx'
+user_input = 'x4'
+user_input = 'x5'
+user_input = 'x6'
+user_input = 'tx'
+user_input = 'ty'
+user_input = 'x2'
+user_input = '2x'
+user_input = 'xm'
+user_input = 'XM'
+user_input = 'mz'
+user_input = 'z1'
+user_input = '1z'
+user_input = 'zm'
+user_input = 'z5'
+user_input = 'z6'
+user_input = 'z8'
+user_input = 'z7'
+user_input = 'z4'
+user_input = 'zz'
+user_input = 'za'
+user_input = 'tb'
+user_input = 'ws'
+user_input = 'w1'
+user_input = 'w3'
+user_input = 'wo'
+user_input = 'bs'
+user_input = 'b1'
+user_input = 'bo'
+user_input = 'w3'
+user_input = 'w4'
+user_input = 'w5'
+user_input = 'w6'
+user_input = 'dd'
+user_input = 'bs'
+user_input = 'xq'
+user_input = 'qx'
+user_input = 'zq'
+user_input = 'qz'
+user_input = 'yq'
+user_input = 'qy'
+user_input = 'aj'
+user_input = 'tt'
+user_input = 'sw'
+user_input = 'hm'
+user_input = 'hs'
+user_input = 'sc'
+user_input = 'uj'
+user_input = 'zt'
+user_input = 'mb'
+user_input = 'dp'
+user_input = 'cb'
+user_input = 'pd'
+user_input = 'pf'
+user_input = 'gd'
+user_input = 'gD'
+user_input = 'g1'
+user_input = 'gp'
+user_input = 'g2'
+user_input = 'gb' -
+user_input = 'ab' - Perform built-in test, return results
+user_input = 'bn' - Perform built-in NEW test, return results bitarr
+user_input = 'qt' - выйти из приложения Python
+user_input = 'cs' - Get image from camera, return RGB array
+user_input = 'sf' - получить изображение с камеры и записать в 'tst.bmp'
+user_input = 'cl' - индикатор сохранения изображения с камеры
+user_input = 'bd' - вернуться к настройкам по умолчанию
+user_input = 'sd' - выключить устройство shutdown
+user_input = 'lo' - Set spectrometer lamp intensity to 0% выключить спектрометр
+user_input = 'ln' - включить спектрометр
+user_input = 'l5' - set lamp intensity
+user_input = 'dn' - turn on camera light
+user_input = 'df' - turn off camera light
+user_input = 'su' - get swcode for update
+user_input = 'sl'
+user_input = 'tn' - test null in string
+
 
  public static String Production_domain_url = 
 "https://prod.gemmacert.com/CannabiTechWebApplication/API/prev_calibration_timestamp_"; //Production

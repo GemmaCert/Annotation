@@ -34,12 +34,14 @@ import zipfile
 import traceback
 
 #------------  comment out in real code, this is emulation  -------------------
-from externaldev import picamera
+from externaldev import picamera,BluetoothSocket
 import externaldev
 from externaldev import serial
 
 GPIO = externaldev.RPiGPIO() # --- device substitution ---
 client_sock = externaldev.bluetooth() #  --- device substitution ---
+RFCOMM = 'RFCOMM'
+PORT_ANY = 3
 # -----------------------------------------------------------------------------
 
 swversion='3.0.34' 
@@ -707,7 +709,7 @@ def Move_z(new_position):            #Move along z axis to received location, re
                 flgs.zswitch=1  
                 switch_z_counter=0
                 log('MICROSWITCH_TOUCH_COUNTER z microswitch switch_z_counter=%d'%switch_z_counter)
-                print 'z microswitch pressed'
+                print('z microswitch pressed')
                 fixing_home_z()
                 pos.z =flgs.fix_steps_z
                 return pos.z
@@ -2752,7 +2754,7 @@ def byAttributesSpectConf(sample):
     if sample=='dark':
         LogMode=flgs.config["darkSpectrometerAttributes"]['LogMode']
     spectrometer.write('PC%d\r' %LogMode)        # установить режим управления лампой, 1 = auto, 0 = manual
-    print spectrometer.readline()
+    print(spectrometer.readline())
 
 # конфигурация  проверки спектрометра
 def examSpectConf():
